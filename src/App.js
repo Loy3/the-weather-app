@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { getCurrentWeather, getWeatherForecast, getWeatherByCity } from './Services/WeatherServices';
 
 // const API_KEY = "c530bf33b8dca7c2c9139af4f700da2a";
+const API_KEY = "e4f629e10b1a4dc1aeb7d2bcaa3d430a";
 // const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
   const [weather, setWeather] = useState(null);
 
   const [forecastWeather, setForecastWeather] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -162,8 +164,31 @@ function App() {
     // });
 
     // searchWeather
+    getArticles()
   }, []);
 
+
+  async function getArticles() {
+    let city = "Soshanguve"
+    const url = `https://newsapi.org/v2/everything?q=${city}&apiKey=${API_KEY}`;
+
+    // await fetch(URL)
+    //   .then(myRes => {
+    //     console.log(myRes.data);
+    //   })
+    //   .catch(error => console.log(error));
+
+    await fetch(url)
+      .then(myRes => myRes.json())
+      .then((data) => {
+        console.log(data);
+
+        setArticles(data.articles);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   const [searched, setsearched] = useState({
     name: "",
@@ -266,6 +291,16 @@ function App() {
           Search
         </button>
 
+
+        <div>
+          {articles.map(article => (
+            <div key={article.title}>
+              <img src={article.urlToImage} alt='urlToImage' width={250} />
+              <h3>{article.title}</h3>
+              <p>{article.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
       {/* 
       <div>

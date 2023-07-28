@@ -1,0 +1,137 @@
+ const [weather, setWeather] = useState(null);
+
+  const [forecastWeather, setForecastWeather] = useState([]);
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const { latitude, longitude } = position.coords;
+        const response = await getCurrentWeather(latitude, longitude)
+        const weatherData = await response.json();
+        // console.log(weatherData);
+        // searchByCity(weatherData.name)
+        setWeather(weatherData);
+      });
+    };
+
+    fetchWeather();
+
+
+    const fetchWeatherForeCast = async () => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const { latitude, longitude } = position.coords;
+        await getWeatherForecast(latitude, longitude).then(res => res.json())
+          .then((data) => {
+            let forecast = [];
+            forecast = data.list.reduce((acc, obj) => {
+              const date = new Date(obj.dt * 1000).toLocaleDateString();
+              // const idNum = obj.item;
+              if (!acc[date]) {
+                acc[date] = [obj];
+              } else {
+                acc[date].push({ obj });
+              }
+              return acc;
+            }, {});
+
+            const arr = Object.entries(forecast).map(([date, value]) => ({ date, value }));
+            console.log(arr);
+            setForecastWeather(arr)
+          });
+       
+      });
+
+
+    }
+
+    fetchWeatherForeCast();
+
+   
+    getArticles()
+  }, []);
+
+
+  async function getArticles() {
+    let city = "Soshanguve";
+
+    await getArticlesByCity(city).then(myRes => myRes.json())
+      .then((data) => {
+        console.log(data);
+
+        setArticles(data.articles);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+
+  if (!weather) return <div>Loading...</div>;
+
+
+  return (
+    <div className="App">
+      <div>
+        {/* <h1>{weather.name}</h1>
+        <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt={weather.weather[0].description} />
+        <p>{weather.main.temp}°C</p>
+        <p>{weather.weather[0].description}</p>
+
+        <h2>Forecast:</h2>
+
+        {forecastWeather.map((day, index) => (
+          <div key={index}>
+            <p>Date: {day.date}</p>
+            <p>Temperature: {day.value[0].main.temp}°C</p>
+            <p>Description: {day.value[0].weather[0].description}</p>
+            <br /><br />
+          </div>
+        ))}
+
+        <br /><br /> */}
+        {/* {searched.map((day, index) => ( */}
+        {/* {searched === [] ? null : <div id={'searched'}>
+          key={index}
+          <h1>{searched.name}</h1>
+          <p>Date: {searched.date}</p>
+          <p>Temperature: {searched.temp}°C</p>
+          <p>Description: {searched.descript}</p>
+          <br /><br />
+        </div>}
+        )) }
+
+        <input type="text" placeholder='enter city' onChange={(event) => setsearchByCity(event.target.value)} />
+        <br />
+        <button onClick={searchWeather}>
+          Search
+        </button> */}
+
+
+        <div>
+          {articles.map(article => (
+            <div key={article.title}>
+              <img src={article.urlToImage} alt='urlToImage' width={250} />
+              <h3>{article.title}</h3>
+              <p>{article.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* 
+      <div>
+        <h2>Current weather:</h2>
+        <p>Temperature: {weather.current.temp}°C</p>
+        <p>Description: {weather.current.weather[0].description}</p>
+        <h2>Forecast:</h2>
+        {weather.daily.slice(1, 6).map(day => (
+          <div key={day.dt}>
+            <p>Date: {new Date(day.dt * 1000).toLocaleDateString()}</p>
+            <p>Temperature: {day.temp.day}°C</p>
+            <p>Description: {day.weather[0].description}</p>
+          </div>
+        ))}
+      </div> */}
+    </div>
+  );

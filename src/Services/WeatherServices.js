@@ -6,7 +6,6 @@ const API_KEY = "c530bf33b8dca7c2c9139af4f700da2a";
 
 //get current location weather
 export const getCurrentWeather = async (latitude, longitude) => {
-
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
     const response = await fetch(url);
 

@@ -40,11 +40,11 @@ export default function Weather() {
     const [time, setTime] = useState(moment().format('hh:mm'));
     const [backgroundColor, setbackgroundColor] = useState("");
     const [weatherD, setweatherD] = useState(clearSky);
-    let { weatherDescription } = "";
+    
 
     useEffect(() => {
         const fetchWeather = async () => {
-
+            let weatherDescription = "";
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const { latitude, longitude } = position.coords;
                 const response = await getCurrentWeather(latitude, longitude)
@@ -119,7 +119,7 @@ export default function Weather() {
         }, 1000);
         return () => clearInterval(interval);
 
-    }, [time]);
+    }, [time]); 
 
     function capitalizeString(str) {
         let words = str.split(' ');

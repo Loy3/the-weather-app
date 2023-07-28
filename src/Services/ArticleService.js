@@ -8,4 +8,4 @@ export const getArticlesByCity = async (city) => {
     const articles = await fetch(url);
     return articles;
 
-}
+} 

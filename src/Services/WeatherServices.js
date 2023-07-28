@@ -24,4 +24,4 @@ export const getWeatherByCity = async (city) => {
     const cityRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${API_KEY}`);
     return cityRes;
 
-}
+} 

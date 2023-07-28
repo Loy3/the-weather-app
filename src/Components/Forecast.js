@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect  } from "react";
 import { getWeatherForecast } from '../Services/WeatherServices';
 import SideNavBar from "./SideNavBar";
 
@@ -36,10 +36,11 @@ export default function Forecast() {
     const [weather, setWeather] = useState([]);
     const [weatherD, setweatherD] = useState(clearSky);
 
-    let { weatherDescription } = "";
+    
 
     useEffect(() => {
         const fetchWeatherForeCast = async () => {
+            let  weatherDescription  = "";
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const { latitude, longitude } = position.coords;
                 await getWeatherForecast(latitude, longitude).then(res => res.json())
@@ -125,7 +126,7 @@ export default function Forecast() {
 
 
 
-    function convertToDays(value) {
+    function convertToDays(value) { 
         //         const date = new Date(value);
         //         const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()];
         // return weekday;

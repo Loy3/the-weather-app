@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { getWeatherByCity } from '../Services/WeatherServices';
 import { getArticlesByCity } from '../Services/ArticleService';
 
@@ -44,16 +44,14 @@ export default function Search() {
     const [searchByCity, setsearchByCity] = useState("Pretoria");
     const [searchStatus, setSearchStatus] = useState(false);
     const [articles, setArticles] = useState([]);
-    const [backgroundColor, setbackgroundColor] = useState(defaultWe);
+    const [backgroundColor, setbackgroundColor] = useState("");
     const [weatherD, setweatherD] = useState(clearSky)
-    let { weatherDescription } = "";
+    
 
-    useEffect(() => {
-        searchWeather()
-    }, [])
 
     async function searchWeather() {
         // For searching a city
+        let weatherDescription = "";
         try {
             // const city = "soshanguve";
             await getWeatherByCity(searchByCity)
@@ -246,7 +244,7 @@ export default function Search() {
                                         <h4>Source: <span>{article.source.name}</span></h4>
                                         <p>{article.title}</p>
                                         {/* <p>{article.description}</p> */}
-                                        <a href={article.url} target="_blank">read about it</a>
+                                        <a href={article.url} target="_blank" rel="noreferrer noopener">read about it</a>
                                     </div>
                                 </div>
                             </div>

@@ -23,7 +23,7 @@ export default function SideNavBar() {
                 navigate("/")
                 break;
             case "forecast":
-                navigate("/forecast")
+                navigate("/forecast") 
                 break;
             case "search":
                 navigate("/search")

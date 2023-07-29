@@ -14,7 +14,6 @@ import snowy from "../Assets/Icons/snowy.png";
 import clearSky from "../Assets/Icons/sunny.png";
 import thunderstormW from "../Assets/Icons/thunderstorm.png";
 import mist from "../Assets/Icons/mist2.png";
-// import nightT from "../Assets/Icons/night.png";
 
 import csW from "../Assets/Images/clearsky.jpg";
 import fcW from "../Assets/Images/fewclouds.jpg";
@@ -170,7 +169,7 @@ export default function Search() {
     }
 
     if (!searchStatus) return (
-        <div className="background" style={{ backgroundImage: `url(${backgroundColor})` }}>
+        <div className="background" style={{ backgroundImage: `url(${defaultWe})` }}>
             <SideNavBar />
             <div className="search">
 

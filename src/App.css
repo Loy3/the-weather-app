@@ -270,7 +270,7 @@
     font-size: 90px;
 
     margin: 0;
-    padding-top: 100px;
+    padding-top: 50px;
   }
 
   .weather .date-time h3 {
@@ -284,10 +284,9 @@
 
   .weather .date-time button {
     padding: 7px 10px;
-    width: 140px;
+    width: 130px;
     margin: 5px;
     border-radius: 2em;
-
   }
 
 
@@ -306,9 +305,9 @@
   }
 
   .weather .place .card {
-    width: 323px;
+    width: 310px;
     margin-top: 100px;
-    margin-left: 3px;
+    margin-left: 10px;
     text-align: center;
     height: inherit;
     padding: 0px 0 10px 0;
@@ -319,7 +318,8 @@
     position: unset;
     right: unset;
     top: unset;
-    margin-top: 10px;
+    margin-top: 25px;
+    width: 90px;
   }
 
 }
@@ -731,6 +731,7 @@
 
   .search .searchBar h1 {
     font-size: 60px;
+
   }
   
   .search .searchBar p {
@@ -785,6 +786,7 @@
 
 .mySearch .articles {
   margin-left: 0px;
+  text-align: center;
 }
 
 .mySearch .articles .column{
@@ -793,13 +795,14 @@
 
 .mySearch .articles #card .column{
   width: 100%;
-  
+  text-align: left;
 }
 
 .mySearch .articles h4{
 
   width: 88%;
 }
+
 
 .mySearch .articles #card p{
   margin-top: 10px;

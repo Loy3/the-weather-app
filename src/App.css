@@ -625,7 +625,7 @@
 }
 
 .mySearch {
-  /* height: 100vh; */
+  height: 100vh;
   background-color: #000000cb;
   width: 95%;
   margin-left: 5%;

@@ -1,6 +1,6 @@
 import React, {  useState } from "react";
 import { getWeatherByCity } from '../Services/WeatherServices';
-import { getArticlesByCity } from '../Services/ArticleService';
+// import { getArticlesByCity } from '../Services/ArticleService';
 
 import search from "../Assets/Icons/transparency.png"
 
@@ -28,7 +28,7 @@ import srW from "../Assets/Images/showerrain.jpg";
 import thW from "../Assets/Images/thunderstorm.jpg";
 // import csW from "../Assets/Images/clearsky.jpg";
 import defaultWe from "../Assets/Images/default.jpg";
-import thenews from "../Assets/Images/news.jpg";
+// import thenews from "../Assets/Images/news.jpg";
 import SideNavBar from "./SideNavBar";
 
 export default function Search() {
@@ -43,7 +43,7 @@ export default function Search() {
     });
     const [searchByCity, setsearchByCity] = useState("Pretoria");
     const [searchStatus, setSearchStatus] = useState(false);
-    const [articles, setArticles] = useState([]);
+    // const [articles, setArticles] = useState([]);
     const [backgroundColor, setbackgroundColor] = useState("");
     const [weatherD, setweatherD] = useState(clearSky)
     
@@ -71,7 +71,7 @@ export default function Search() {
                     });
                     // document.getElementById("searched").style.display = 'block';
                     // convert the weather from kelvin to Celsius
-                    getArticles(data.name);
+                    // getArticles(data.name);
                     setSearchStatus(true);
                     weatherDescription = data.weather[0].description;
 
@@ -128,19 +128,19 @@ export default function Search() {
             alert(error);
         }
     }
-    async function getArticles(city) {
-        // let city = "Soshanguve";
+    // async function getArticles(city) {
+    //     // let city = "Soshanguve";
 
-        await getArticlesByCity(city).then(myRes => myRes.json())
-            .then((data) => {
-                console.log(data);
+    //     await getArticlesByCity(city).then(myRes => myRes.json())
+    //         .then((data) => {
+    //             console.log(data);
 
-                setArticles(data.articles);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
+    //             setArticles(data.articles);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    // }
 
     function capitalizeString(str) {
         let words = str.split(' ');
@@ -170,7 +170,7 @@ export default function Search() {
     }
 
     if (!searchStatus) return (
-        <div className="background" style={{ backgroundImage: `url(${backgroundColor})` }}>
+        <div className="background" style={{ backgroundImage: `url(${defaultWe})` }}>
             <SideNavBar />
             <div className="search">
 
@@ -228,7 +228,7 @@ export default function Search() {
                     <h1>{searched.name} Articles</h1>
                     <p>Article from the searched city.</p>
                     <br/><br/>
-                    <div className="row">
+                    {/* <div className="row">
                         {articles.map((article, index) => (
                             <div className="column" key={index}>
                                 <div className="row" id={"card"}>
@@ -243,13 +243,13 @@ export default function Search() {
                                     <div className="column">
                                         <h4>Source: <span>{article.source.name}</span></h4>
                                         <p>{article.title}</p>
-                                        {/* <p>{article.description}</p> */}
+                                        {/* <p>{article.description}</p> *}
                                         <a href={article.url} target="_blank" rel="noreferrer noopener">read about it</a>
                                     </div>
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

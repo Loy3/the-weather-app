@@ -633,12 +633,14 @@
   color: white;
 }
 
-.mySearch .wrap h1, .mySearch .articles h1{
+.mySearch .wrap h1,
+.mySearch .articles h1 {
   margin: 0;
   padding: 20px 0;
   font-weight: unset;
   font-size: 32px;
 }
+
 .mySearch .wrap img {
   width: 130px;
 }
@@ -647,44 +649,47 @@
   padding: 30px 50px;
 }
 
-.mySearch .wrap h3{
+.mySearch .wrap h3 {
   margin: 0;
   padding: 20px 0;
   font-weight: unset;
   font-size: 22px;
-  
+
 }
+
 .mySearch .articles {
   margin-left: 30px;
 }
 
-.mySearch .articles .column{
+.mySearch .articles .column {
   width: 30%;
 }
-.mySearch .articles #card{
+
+.mySearch .articles #card {
   background-color: #00000083;
   padding: 10px;
   margin: 10px;
   position: relative;
 }
-.mySearch .articles #card .column{
+
+.mySearch .articles #card .column {
   width: 46%;
   padding-top: 50px;
-  
+
 }
 
-.mySearch .articles #card .column:not(:first-child){
+.mySearch .articles #card .column:not(:first-child) {
   padding: 10px;
 }
 
 
-.mySearch .articles #card img{
+.mySearch .articles #card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-.mySearch .articles h4{
+.mySearch .articles h4 {
   font-weight: unset;
   font-size: 20px;
   color: whitesmoke;
@@ -695,24 +700,27 @@
   top: -40px;
   left: 10px;
 }
-.mySearch .articles p{
+
+.mySearch .articles p {
   margin: 0;
   padding: 0;
 }
-.mySearch .articles #card p{
+
+.mySearch .articles #card p {
   margin-top: 50px;
 }
 
 /* .mySearch .articles span{
   color: red;
 } */
-.mySearch .articles a{
+.mySearch .articles a {
   text-decoration: none;
   color: red;
 
   position: absolute;
   bottom: 10px;
 }
+
 /*Media*/
 @media screen and (width <=700px) {
   .search {
@@ -726,18 +734,18 @@
     display: unset;
     position: absolute;
     top: 35%;
-  left: 30px;
+    left: 30px;
   }
 
   .search .searchBar h1 {
     font-size: 60px;
 
   }
-  
+
   .search .searchBar p {
     font-size: 16px;
   }
-  
+
   .search .searchBar .container {
     width: 103%;
     height: 80px;
@@ -764,61 +772,61 @@
   }
 
   .search .searchBar button {
- 
+
     font-size: 14px;
     height: 60px;
   }
 
-  
-.mySearch {
-  /* height: 100vh; */
-  
-  width: 83%;
-  margin-left: 17%;
-}
+
+  .mySearch {
+    /* height: 100vh; */
+
+    width: 83%;
+    margin-left: 17%;
+  }
 
 
-.mySearch .wrap {
-  padding: 30px ;
-  text-align: center;
-}
+  .mySearch .wrap {
+    padding: 30px;
+    text-align: center;
+  }
 
 
-.mySearch .articles {
-  margin-left: 0px;
-  text-align: center;
-}
+  .mySearch .articles {
+    margin-left: 0px;
+    text-align: center;
+  }
 
-.mySearch .articles .column{
-  width: 98%;
-}
+  .mySearch .articles .column {
+    width: 98%;
+  }
 
-.mySearch .articles #card .column{
-  width: 100%;
-  text-align: left;
-}
+  .mySearch .articles #card .column {
+    width: 100%;
+    text-align: left;
+  }
 
-.mySearch .articles h4{
+  .mySearch .articles h4 {
 
-  width: 88%;
-}
+    width: 88%;
+  }
 
 
-.mySearch .articles #card p{
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
+  .mySearch .articles #card p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 
-/* .mySearch .articles span{
+  /* .mySearch .articles span{
   color: red;
 } */
-.mySearch .articles a{
-  text-decoration: none;
-  color: red;
+  .mySearch .articles a {
+    text-decoration: none;
+    color: red;
 
-  position: absolute;
-  bottom: 10px;
-}
+    position: absolute;
+    bottom: 10px;
+  }
 }
 
 /*End of Media*/
@@ -840,4 +848,44 @@
 .column {
   padding: 0;
   float: left;
+}
+
+
+
+.popUp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 300px;
+  height: 300px;
+  z-index: 99;
+  background-color: #00000083;
+}
+
+.popUp .top {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUp p {
+  margin: 60px 20px;
+}
+
+.popUp button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 100px;
+  height: 35px;
+  outline: none;
+  cursor: pointer;
+  border: 2px solid #000;
+  background-color: white;
+  color: #000;
 }

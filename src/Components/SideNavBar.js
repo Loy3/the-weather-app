@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import home from "../Assets/Icons/home.png"
-import forecast from "../Assets/Icons/forecast.png"
+import forecast from "../Assets/Icons/forecast.png";
 import search from "../Assets/Icons/search.png"
 import { useNavigate } from "react-router-dom";
 import moment from 'moment';
@@ -32,7 +32,7 @@ export default function SideNavBar() {
         }
     }
 
-    return (
+    return (<>
         <div className="sideNav">
             <nav>
                 <h1>{time}</h1>
@@ -45,7 +45,8 @@ export default function SideNavBar() {
                     </div>
                 </div>
             </nav>
-
+           
         </div>
+        </>
     )
 }

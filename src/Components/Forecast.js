@@ -22,7 +22,7 @@ import ocW from "../Assets/Images/overcastclouds2.jpg";
 import rnW from "../Assets/Images/rainy.jpg";
 import scW from "../Assets/Images/scatteredclouds.jpg";
 import bcW from "../Assets/Images/scatteredclouds.jpg";
-import swW from "../Assets/Images/snow.jpg";
+import swW from "../Assets/Images/snow.jpg"; 
 import srW from "../Assets/Images/showerrain.jpg";
 import thW from "../Assets/Images/thunderstorm.jpg";
 // import csW from "../Assets/Images/clearsky.jpg";

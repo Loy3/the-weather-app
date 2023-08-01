@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getWeatherByCity } from '../Services/WeatherServices';
 // import { getArticlesByCity } from '../Services/ArticleService';
 
@@ -45,8 +45,10 @@ export default function Search() {
     // const [articles, setArticles] = useState([]);
     const [backgroundColor, setbackgroundColor] = useState("");
     const [weatherD, setweatherD] = useState(clearSky)
-    
 
+    useEffect(() => {
+
+    }, [])
 
     async function searchWeather() {
         // For searching a city
@@ -127,6 +129,9 @@ export default function Search() {
             alert(error);
         }
     }
+
+    //Uncomment below from line 135 to line 147
+
     // async function getArticles(city) {
     //     // let city = "Soshanguve";
 
@@ -150,10 +155,6 @@ export default function Search() {
     }
 
     function getDate() {
-        //         const date = new Date(value);
-        //         const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()];
-        // return weekday;
-        // console.log(weekday);
 
         const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -166,6 +167,10 @@ export default function Search() {
 
         return formattedDate;
 
+    }
+
+    function closeBtn() {
+        document.getElementById("popup").style.display = "none";
     }
 
     if (!searchStatus) return (
@@ -195,7 +200,24 @@ export default function Search() {
                         </div>
                     </div>
                 </div>
+                <div className="popUp" id={"popup"}>
+                    <div className="top">
+                        Notice!
+                    </div>
+                    <p>
+                        When trying to view articles when running the app locally
+                        <br />
+                        <br />
+                        Inside src
+                        <br />
+                        Go to: <i>Components / Search </i>
+                        <br /><br />
+                        Uncomment from line 135 to line 147 and then Uncomment from line 249 to line 270.
+                    </p>
+                    <button onClick={closeBtn}>Close</button>
+                </div>
             </div>
+
         </div>
     )
 
@@ -209,11 +231,6 @@ export default function Search() {
 
                     <h3>{getDate()}</h3>
                     <img src={weatherD} alt="weather" width={80} />
-                    {/* <p>Date: {searched.date}</p>
-                    <p>Temperature: {searched.temp}°C</p>
-                    <p>Description: {searched.descript}</p>
-                    <br /><br /> */}
-
                     <h1>{Math.ceil(searched.temp)}°C</h1>
                     <p>{capitalizeString(searched.descript)}</p>
                     <p>Humidity: {searched.humidity}%</p>
@@ -226,7 +243,9 @@ export default function Search() {
                 <div className="articles">
                     <h1>{searched.name} Articles</h1>
                     <p>Article from the searched city.</p>
-                    <br/><br/>
+                    <br /><br />
+                    {/* Uncomment below from line 249 to line 270 */}
+
                     {/* <div className="row">
                         {articles.map((article, index) => (
                             <div className="column" key={index}>

@@ -1,7 +1,10 @@
 
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import { getWeatherForecast } from '../Services/WeatherServices';
 import SideNavBar from "./SideNavBar";
+
+import moment from 'moment';
+// import 'moment/locale/en-gb';
 
 import brokenCloud from "../Assets/Icons/brokencloud.png";
 import fewClouds from "../Assets/Icons/fewClouds.png";
@@ -22,7 +25,7 @@ import ocW from "../Assets/Images/overcastclouds2.jpg";
 import rnW from "../Assets/Images/rainy.jpg";
 import scW from "../Assets/Images/scatteredclouds.jpg";
 import bcW from "../Assets/Images/scatteredclouds.jpg";
-import swW from "../Assets/Images/snow.jpg"; 
+import swW from "../Assets/Images/snow.jpg";
 import srW from "../Assets/Images/showerrain.jpg";
 import thW from "../Assets/Images/thunderstorm.jpg";
 // import csW from "../Assets/Images/clearsky.jpg";
@@ -36,11 +39,11 @@ export default function Forecast() {
     const [weather, setWeather] = useState([]);
     const [weatherD, setweatherD] = useState(clearSky);
 
-    
+
 
     useEffect(() => {
         const fetchWeatherForeCast = async () => {
-            let  weatherDescription  = "";
+            let weatherDescription = "";
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const { latitude, longitude } = position.coords;
                 await getWeatherForecast(latitude, longitude).then(res => res.json())
@@ -126,20 +129,8 @@ export default function Forecast() {
 
 
 
-    function convertToDays(value) { 
-        //         const date = new Date(value);
-        //         const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()];
-        // return weekday;
-        // console.log(weekday);
-
-        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-        const today = new Date(value);
-        const dayOfWeek = daysOfWeek[today.getDay()];
-        const dayOfMonth = today.getDate();
-        const monthOfYear = monthsOfYear[today.getMonth()];
-        const formattedDate = `${dayOfWeek}, ${dayOfMonth} ${monthOfYear}`;
+    function convertToDays(value) {
+        const formattedDate = moment(value, 'MM/DD/YYYY').format('dddd, DD MMMM');
 
         return formattedDate;
 

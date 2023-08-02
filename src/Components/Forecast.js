@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getWeatherForecast } from '../Services/WeatherServices';
 import SideNavBar from "./SideNavBar";
 
-import moment from 'moment';
+// import moment from 'moment';
 // import 'moment/locale/en-gb';
 
 import brokenCloud from "../Assets/Icons/brokencloud.png";
@@ -130,10 +130,12 @@ export default function Forecast() {
 
 
     function convertToDays(value) {
-        const formattedDate = moment(value, 'MM/DD/YYYY').format('dddd, DD MMMM');
+        // const formattedDate = moment(value, 'MM/DD/YYYY').format('dddd, DD MMMM');
+        // return formattedDate;
+        const date = new Date(value);
 
-        return formattedDate;
-
+        const options = { weekday: 'long', day: 'numeric', month: 'long' };
+        return date.toLocaleDateString('en-US', options);
     }
 
     function capitalizeString(str) {

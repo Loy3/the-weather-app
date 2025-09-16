@@ -1,5 +1,5 @@
 //Declarations
-const API_KEY = "c530bf33b8dca7c2c9139af4f700da2a";
+const API_KEY = "c530bf33b8dca7c2c9139af4f700da";
 // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 // const forCast = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`;
 
